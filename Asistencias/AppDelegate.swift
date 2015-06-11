@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import Meteor
 
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "wss://localhost:3000/websocket")!)
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://localhost:3000/websocket")!)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Meteor.connect()
+        //Meteor.addSubscriptionWithName("everything")
+        //Meteor.loginWithEmail("app@uai.cl", password: "12345678", completionHandler: nil)
         
         return true
     }
