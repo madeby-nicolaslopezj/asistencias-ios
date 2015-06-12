@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "81223A1F1A43945738027AA9"
+               BlueprintIdentifier = "2FC90369DAE04FBA5C922A1E"
                BuildableName = "Meteor.framework"
                BlueprintName = "Pods-Meteor"
                ReferencedContainer = "container:Pods.xcodeproj">

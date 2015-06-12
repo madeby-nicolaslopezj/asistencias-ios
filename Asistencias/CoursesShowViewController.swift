@@ -13,7 +13,6 @@ import Meteor
 class CoursesShowViewController: FetchedResultsViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var startSessionButton: UIButton!
     @IBOutlet weak var rutInputContainerView: UIView!
     
     var rutInputViewController: RutInputViewController?
@@ -66,6 +65,53 @@ class CoursesShowViewController: FetchedResultsViewController {
         if isViewLoaded() {
             updateViewWithModel()
         }
+        
+    }
+    
+    private var sessionObserver: ManagedObjectObserver?
+    
+    private var privateSession: Session? {
+        didSet {
+            if privateSession != oldValue {
+                if privateSession != nil {
+                    sessionObserver = ManagedObjectObserver(privateSession!) { (changeType) -> Void in
+                        switch changeType {
+                        case .Deleted, .Invalidated:
+                            self.privateSession = nil
+                        case .Updated, .Refreshed:
+                            self.sessionDidChange()
+                        default:
+                            break
+                        }
+                    }
+                } else {
+                    sessionObserver = nil
+                    resetContent()
+                }
+                
+                sessionDidChange()
+                setNeedsLoadContent()
+            }
+        }
+    }
+    
+    func sessionDidChange() {
+        if isViewLoaded() {
+            updateViewWithModel()
+        }
+    }
+    
+    var session: Session? {
+        get {
+            if course?.currentSession == nil {
+                println("Creating session...")
+                createSession()
+            }
+            
+            privateSession = course?.currentSession
+            
+            return course?.currentSession
+        }
     }
     
     // MARK: - View Lifecycle
@@ -104,11 +150,7 @@ class CoursesShowViewController: FetchedResultsViewController {
         if course == nil {
             
         } else {
-            
-            println(course?.students)
-            
             self.nameLabel!.text = course?.name
-            
         }
     }
     
@@ -116,10 +158,6 @@ class CoursesShowViewController: FetchedResultsViewController {
 
     @IBAction func closeButtonClicked(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    @IBAction func startSessionButtonClicked(sender: AnyObject) {
-        
     }
     
     // MARK: - Rut Delegate
@@ -135,10 +173,34 @@ class CoursesShowViewController: FetchedResultsViewController {
         
         if results.count == 1 {
             var student = results[0] as! Student
+            self.markStudentAssistance(student)
             return student.name
         }
         
         return nil
+    }
+    
+    func markStudentAssistance(student: Student) {
+        println("Checking in...")
+        self.session?.addStudent(student);
+    }
+    
+    // MARK: - Create Session
+    
+    func createSession() {
+        println("Creating new session")
+        let courseId: String = Meteor.documentKeyForObjectID(course!.objectID).documentID as! String
+        
+        let newSession = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext:managedObjectContext) as! Session
+        newSession.course = courseId
+        newSession.module = ModuleHelper.module
+        
+        var error = NSErrorPointer()
+        if !managedObjectContext.save(error) {
+            println("Encountered error saving objects: \(error)")
+        } else {
+            println("Session created")
+        }
     }
     
     // MARK: - Navigation

@@ -20,6 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Meteor.connect()
+        
+        
+        println("Module: \(ModuleHelper.module)")
         //Meteor.addSubscriptionWithName("everything")
         //Meteor.loginWithEmail("app@uai.cl", password: "12345678", completionHandler: nil)
         

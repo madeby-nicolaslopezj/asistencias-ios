@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Timepiece.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09AF182D2BE8523BDC1650EC</key>
+		<key>09E41058FFAD080BD05F03BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0AE2396235350889ED4B50DA</key>
+		<key>0B1CD0460C0F75A55ACB8A3A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7B9BA785E509141EF6F21831</key>
+		<key>2A8E497559F00609BE38DD2C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>81223A1F1A43945738027AA9</key>
+		<key>2FC90369DAE04FBA5C922A1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B6DA6C0F71ECCB4A38724577</key>
+		<key>328C1363BA279E22F7461CAC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BEDE35C5947D2677841E7E3E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

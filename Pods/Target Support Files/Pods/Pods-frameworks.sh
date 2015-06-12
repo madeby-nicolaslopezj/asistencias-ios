@@ -52,10 +52,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Meteor.framework'
   install_framework 'PocketSocket.framework'
   install_framework 'SimpleKeychain.framework'
+  install_framework 'Timepiece.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'InflectorKit.framework'
   install_framework 'Meteor.framework'
   install_framework 'PocketSocket.framework'
   install_framework 'SimpleKeychain.framework'
+  install_framework 'Timepiece.framework'
 fi

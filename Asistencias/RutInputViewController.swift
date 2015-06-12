@@ -32,7 +32,6 @@ class RutInputViewController: UIViewController {
         set(string) {
             self.inputLabel.text = string
             if let studentName = coursesShowViewController?.getStudentNameWithRut(string) {
-                println("Student found: \(studentName)")
                 self.inputLabel.text = ""
             }
         }
@@ -41,7 +40,7 @@ class RutInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentValue = ""
+        currentValue = "1839724"
     }
 
     
@@ -49,7 +48,10 @@ class RutInputViewController: UIViewController {
         var tag = sender.tag
         
         if tag == 11 {
-            currentValue = dropLast(currentValue)
+            if currentValue != "" {
+                currentValue = dropLast(currentValue)
+            }
+            
             return
         }
         

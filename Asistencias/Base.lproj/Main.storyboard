@@ -122,16 +122,6 @@
                                     <action selector="closeButtonClicked:" destination="ZGu-Pk-5De" eventType="touchUpInside" id="Ebt-bR-igu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C6L-P0-Yn9">
-                                <rect key="frame" x="189" y="153" width="162" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Empezar nueva sessión">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startSessionButtonClicked:" destination="ZGu-Pk-5De" eventType="touchUpInside" id="ecM-u8-BVo"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -140,7 +130,6 @@
                     <connections>
                         <outlet property="nameLabel" destination="p4f-wZ-4uN" id="k2I-Cs-za0"/>
                         <outlet property="rutInputContainerView" destination="uA3-M4-QV5" id="fRq-3R-1Dk"/>
-                        <outlet property="startSessionButton" destination="C6L-P0-Yn9" id="5wJ-7u-WwG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="das-1h-D38" userLabel="First Responder" sceneMemberID="firstResponder"/>
