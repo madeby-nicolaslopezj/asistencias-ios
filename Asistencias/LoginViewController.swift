@@ -9,12 +9,12 @@
 import UIKit
 import Meteor
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.clearColor()
+        //self.view.backgroundColor = UIColor.clearColor()
 
         // Do any additional setup after loading the view.
     }
@@ -75,15 +75,30 @@ class LoginViewController: UIViewController {
         })
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "loginToCoursesIndex" {
+            if let controller = segue.destinationViewController as? UIViewController {
+                controller.transitioningDelegate = self
+                controller.modalPresentationStyle = .Custom
+            }
+        }
     }
-    */
+    
+    // MARK: UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        var transition = MainTransition()
+        transition.transitionMode = .Present
+        return transition
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        var transition = MainTransition()
+        transition.transitionMode = .Dismiss
+        return transition
+    }
 
 }

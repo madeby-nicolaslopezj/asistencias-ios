@@ -13,7 +13,8 @@ class AppNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "wallpaper")!)
+        self.view.backgroundColor = UIColor.clearColor()
 
         // Do any additional setup after loading the view.
     }

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Check" representedClassName="Asistencias.Check" syncable="YES">
+        <attribute name="session" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="student" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Course" representedClassName="Asistencias.Course" syncable="YES">
         <attribute name="abbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="currentSessionId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hidden" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfStudents" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,7 +21,6 @@
         <attribute name="course" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="module" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="students" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <entity name="Student" representedClassName="Asistencias.Student" syncable="YES">
         <attribute name="digit" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,8 +30,9 @@
         <attribute name="rut" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Course" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="Session" positionX="-36" positionY="81" width="128" height="105"/>
+        <element name="Course" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Session" positionX="-36" positionY="81" width="128" height="90"/>
         <element name="Student" positionX="-54" positionY="63" width="128" height="120"/>
+        <element name="Check" positionX="-45" positionY="63" width="128" height="75"/>
     </elements>
 </model>

@@ -21,5 +21,6 @@ class Course: NSManagedObject {
     @NSManaged var section: String
     @NSManaged var teacher: String
     @NSManaged var students: NSData
+    @NSManaged var currentSessionId: String
 
 }

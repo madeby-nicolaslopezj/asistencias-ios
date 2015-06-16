@@ -10,15 +10,20 @@ import UIKit
 
 class CourseTableViewCell: UITableViewCell {
     
-    var course: Course!
-
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var teacherLabel: UILabel!
+    @IBOutlet weak var codeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
+        //self.backgroundColor = UIColor.clearColor()
+        //self.addBackgroundView()
+     
+        
+        //self.nameLabel.textColor = UIColor.whiteColor()
+        //self.teacherLabel.textColor = UIColor.whiteColor()
         
     }
 

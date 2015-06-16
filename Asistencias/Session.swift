@@ -14,6 +14,5 @@ class Session: NSManagedObject {
     @NSManaged var date: String
     @NSManaged var module: NSNumber
     @NSManaged var course: String
-    @NSManaged var students: NSData
 
 }

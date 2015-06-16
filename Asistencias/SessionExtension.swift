@@ -15,8 +15,18 @@ extension Session {
         println("Adding student to session")
         let studentId: String = Meteor.documentKeyForObjectID(student.objectID).documentID as! String
         let sessionId: String = Meteor.documentKeyForObjectID(self.objectID).documentID as! String
+   
+        let check = NSEntityDescription.insertNewObjectForEntityForName("Check", inManagedObjectContext:self.managedObjectContext!) as! Check
         
-        Meteor.callMethodWithName("addStudentToSession", parameters: [studentId, sessionId])
+        check.session = sessionId
+        check.student = studentId
+        
+        var error = NSErrorPointer()
+        if !self.managedObjectContext!.save(error) {
+            println("Encountered error saving objects: \(error)")
+        } else {
+            println("Check created")
+        }
     }
     
 }

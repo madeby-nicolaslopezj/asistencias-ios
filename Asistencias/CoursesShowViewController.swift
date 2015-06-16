@@ -10,10 +10,13 @@ import UIKit
 import CoreData
 import Meteor
 
-class CoursesShowViewController: FetchedResultsViewController {
+class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var rutInputContainerView: UIView!
+    @IBOutlet weak var moduleLabel: UILabel!
+    @IBOutlet weak var studentsCountLabel: UILabel!
+    @IBOutlet weak var startSessionButton: UIButton!
     
     var rutInputViewController: RutInputViewController?
     
@@ -61,6 +64,14 @@ class CoursesShowViewController: FetchedResultsViewController {
     }
     
     func courseDidChange() {
+
+        if course != nil {
+            if let sessionId = course?.valueForKey("currentSessionId") as! String? {
+                var objectId = METDocumentKey(collectionName: "sessions", documentID: sessionId)
+                var managedId = Meteor.objectIDForDocumentKey(objectId)
+                self.sessionID = managedId
+            }
+        }
         
         if isViewLoaded() {
             updateViewWithModel()
@@ -68,16 +79,34 @@ class CoursesShowViewController: FetchedResultsViewController {
         
     }
     
+    var sessionID: NSManagedObjectID? {
+        didSet {
+            assert(managedObjectContext != nil)
+            
+            if let currentSessionId = sessionID {
+                if let currentSession = managedObjectContext!.existingObjectWithID(self.sessionID!, error: nil) as? Session {
+                    session = currentSession
+                } else {
+                    dispatch_after(500, dispatch_get_main_queue(), {
+                        self.sessionID = currentSessionId
+                    });
+                }
+            } else {
+                session = nil
+            }
+        }
+    }
+    
     private var sessionObserver: ManagedObjectObserver?
     
-    private var privateSession: Session? {
+    private var session: Session? {
         didSet {
-            if privateSession != oldValue {
-                if privateSession != nil {
-                    sessionObserver = ManagedObjectObserver(privateSession!) { (changeType) -> Void in
+            if session != oldValue {
+                if session != nil {
+                    sessionObserver = ManagedObjectObserver(session!) { (changeType) -> Void in
                         switch changeType {
                         case .Deleted, .Invalidated:
-                            self.privateSession = nil
+                            self.session = nil
                         case .Updated, .Refreshed:
                             self.sessionDidChange()
                         default:
@@ -99,18 +128,60 @@ class CoursesShowViewController: FetchedResultsViewController {
         if isViewLoaded() {
             updateViewWithModel()
         }
+        initCheckCount()
     }
     
-    var session: Session? {
+    private var checksCount: Int {
         get {
-            if course?.currentSession == nil {
-                println("Creating session...")
-                createSession()
+            if course != nil {
+                if let sessionId = course?.valueForKey("currentSessionId") as! String? {
+                    let fetchRequest = NSFetchRequest(entityName: "Check")
+                    fetchRequest.predicate = NSPredicate(format: "session == %@", sessionId)
+                    
+                    var error = NSErrorPointer()
+                    var results: Array = managedObjectContext.executeFetchRequest(fetchRequest, error: error)!
+                    
+                    return results.count
+                }
             }
             
-            privateSession = course?.currentSession
-            
-            return course?.currentSession
+            return 0
+        }
+    }
+    
+    
+    private var checksCountController: NSFetchedResultsController?
+    
+    func initCheckCount() {
+        if course != nil {
+            if let sessionId = course?.valueForKey("currentSessionId") as! String? {
+                let fetchRequest = NSFetchRequest(entityName: "Check")
+                fetchRequest.predicate = NSPredicate(format: "session == %@", sessionId)
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "session", ascending: true)]
+                
+                var error = NSErrorPointer()
+                var results: Array = managedObjectContext.executeFetchRequest(fetchRequest, error: error)!
+                
+                checksCountController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+                
+                checksCountController!.delegate = self
+                checksCountController!.performFetch(error)
+                
+                if error != nil {
+                    println("Error fetching check count \(error)")
+                }
+            }
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        println("controller did change")
+        checksCountDidChange()
+    }
+    
+    func checksCountDidChange() {
+        if isViewLoaded() {
+            updateViewWithModel()
         }
     }
     
@@ -118,6 +189,8 @@ class CoursesShowViewController: FetchedResultsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layer.masksToBounds = true
+        self.startSessionButton!.addTarget(self, action: "createSession", forControlEvents: UIControlEvents.TouchUpInside)
         
         //addTaskContainerView.preservesSuperviewLayoutMargins = true
     }
@@ -151,6 +224,17 @@ class CoursesShowViewController: FetchedResultsViewController {
             
         } else {
             self.nameLabel!.text = course?.name
+            self.moduleLabel!.text = "Modulo \(ModuleHelper.module)"
+            
+            if self.session == nil {
+                self.rutInputContainerView!.hidden = true
+                self.startSessionButton!.hidden = false
+                self.studentsCountLabel!.text = "No ha empezado la sesión"
+            } else {
+                self.rutInputContainerView!.hidden = false
+                self.startSessionButton!.hidden = true
+                self.studentsCountLabel!.text = "\(self.checksCount) alumnos marcaron asistencias"
+            }
         }
     }
     

@@ -57,6 +57,7 @@ public class FetchedResultsTableViewDataSource: FetchedResultsDataSource, UITabl
     let reuseIdentifier = cellReuseIdentifierForObject(object, atIndexPath: indexPath)
     let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
     configureCell(cell, forObject: object, atIndexPath: indexPath)
+    cell.layoutIfNeeded()
     return cell
   }
   
