@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="88S-TX-j68">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -58,7 +59,18 @@
                     <view key="view" contentMode="scaleToFill" id="qXI-Ba-SBV">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="AQ7-YA-t1H">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" secondItem="AQ7-YA-t1H" secondAttribute="height" id="FSg-ci-efF"/>
+                            <constraint firstAttribute="width" secondItem="AQ7-YA-t1H" secondAttribute="width" id="Fgb-Si-15K"/>
+                            <constraint firstAttribute="centerY" secondItem="AQ7-YA-t1H" secondAttribute="centerY" id="Yac-cc-R0Y"/>
+                            <constraint firstAttribute="centerX" secondItem="AQ7-YA-t1H" secondAttribute="centerX" id="zGn-9U-MQI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mrk-oA-ZYF"/>
                     <connections>
@@ -162,7 +174,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="courseTitle" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4f-wZ-4uN">
-                                <rect key="frame" x="79" y="24" width="382" height="26"/>
+                                <rect key="frame" x="83" y="24" width="374" height="26"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -179,9 +191,10 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uA3-M4-QV5">
-                                <rect key="frame" x="79" y="133.5" width="382" height="500"/>
+                                <rect key="frame" x="79" y="103" width="382" height="450"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="4lb-5N-Abo"/>
+                                    <constraint firstAttribute="height" constant="450" id="4lb-5N-Abo"/>
+                                    <constraint firstAttribute="width" secondItem="uA3-M4-QV5" secondAttribute="height" multiplier="191:225" id="i4h-jd-bZU"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="ds1-wB-JXg" kind="embed" identifier="showRutInput" id="MvK-ps-3Q2"/>
@@ -189,6 +202,9 @@
                             </containerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modulo 8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWP-Y7-P0d">
                                 <rect key="frame" x="233" y="60" width="75.5" height="23.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23.5" id="kdq-ox-vEL"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -200,7 +216,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4H-iY-Tb8">
-                                <rect key="frame" x="178.5" y="327.5" width="183" height="45"/>
+                                <rect key="frame" x="178" y="327" width="183" height="45"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="24"/>
                                 <state key="normal" title="Empezar Sesión">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -211,19 +227,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LWP-Y7-P0d" firstAttribute="top" secondItem="p4f-wZ-4uN" secondAttribute="bottom" constant="10" id="2W6-7L-T37"/>
-                            <constraint firstAttribute="centerX" secondItem="jfo-78-P98" secondAttribute="centerX" constant="-1" id="4sO-Fx-ZE4"/>
+                            <constraint firstAttribute="centerX" secondItem="jfo-78-P98" secondAttribute="centerX" id="4sO-Fx-ZE4"/>
+                            <constraint firstItem="p4f-wZ-4uN" firstAttribute="leading" secondItem="Pr0-sn-zdz" secondAttribute="leadingMargin" constant="63" id="6Pu-dF-J70"/>
                             <constraint firstItem="p4f-wZ-4uN" firstAttribute="top" secondItem="hVD-63-OZe" secondAttribute="bottom" constant="4" id="A5M-hB-xyo"/>
-                            <constraint firstItem="uA3-M4-QV5" firstAttribute="trailing" secondItem="p4f-wZ-4uN" secondAttribute="trailing" id="BPD-i2-YDo"/>
                             <constraint firstAttribute="centerX" secondItem="LWP-Y7-P0d" secondAttribute="centerX" id="Cia-X1-950"/>
+                            <constraint firstAttribute="centerX" secondItem="uA3-M4-QV5" secondAttribute="centerX" id="P9g-Wr-PPz"/>
                             <constraint firstItem="67n-kT-1N9" firstAttribute="leading" secondItem="Pr0-sn-zdz" secondAttribute="leadingMargin" id="Qn2-aD-aI7"/>
                             <constraint firstAttribute="centerX" secondItem="d4H-iY-Tb8" secondAttribute="centerX" id="Sx3-5I-XPt"/>
-                            <constraint firstItem="p4f-wZ-4uN" firstAttribute="leading" secondItem="Pr0-sn-zdz" secondAttribute="leadingMargin" constant="59" id="W2N-El-uPr"/>
-                            <constraint firstItem="jfo-78-P98" firstAttribute="top" secondItem="uA3-M4-QV5" secondAttribute="bottom" constant="8" id="bp0-qP-vaD"/>
                             <constraint firstItem="67n-kT-1N9" firstAttribute="top" secondItem="hVD-63-OZe" secondAttribute="bottom" id="gac-ut-iDh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="p4f-wZ-4uN" secondAttribute="trailing" constant="59" id="olM-Ul-duj"/>
+                            <constraint firstItem="uA3-M4-QV5" firstAttribute="top" secondItem="LWP-Y7-P0d" secondAttribute="bottom" constant="20" id="rns-8z-TA4"/>
                             <constraint firstItem="T5I-Ke-GCZ" firstAttribute="top" secondItem="jfo-78-P98" secondAttribute="bottom" constant="40" id="sCK-fa-IEL"/>
+                            <constraint firstAttribute="centerX" secondItem="p4f-wZ-4uN" secondAttribute="centerX" id="sxb-8o-hBl"/>
                             <constraint firstAttribute="centerY" secondItem="d4H-iY-Tb8" secondAttribute="centerY" id="tYh-h6-RbN"/>
-                            <constraint firstItem="uA3-M4-QV5" firstAttribute="leading" secondItem="p4f-wZ-4uN" secondAttribute="trailing" constant="-382" id="uCF-yf-GMy"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -249,11 +264,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Wz2-A7-hSK"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="SdO-Zx-rVo">
-                        <rect key="frame" x="0.0" y="0.0" width="382" height="500"/>
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="450"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18 3972499" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evf-aX-lTb">
-                                <rect key="frame" x="117" y="0.0" width="140.5" height="40"/>
+                                <rect key="frame" x="117" y="20" width="140.5" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="vrf-oW-Hql"/>
                                 </constraints>
@@ -262,7 +277,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Iq-Xy-Z38" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="157" y="80" width="60" height="60"/>
+                                <rect key="frame" x="157" y="100" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="fgC-d5-IIo"/>
                                     <constraint firstAttribute="height" constant="60" id="mzY-ET-8ch"/>
@@ -276,7 +291,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgg-wS-Nzr" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="47" y="80" width="60" height="60"/>
+                                <rect key="frame" x="47" y="100" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,7 +301,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6eF-au-5dw" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="267" y="80" width="60" height="60"/>
+                                <rect key="frame" x="267" y="100" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="3">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -296,7 +311,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNb-NL-LE7" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="47" y="170" width="60" height="60"/>
+                                <rect key="frame" x="47" y="190" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="4">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -306,7 +321,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJj-Nz-Ufz" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="157" y="170" width="60" height="60"/>
+                                <rect key="frame" x="157" y="190" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="5">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -316,7 +331,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdT-xb-BGK" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="267" y="170" width="60" height="60"/>
+                                <rect key="frame" x="267" y="190" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="6">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -326,7 +341,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFX-s4-DHs" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="157" y="260" width="60" height="60"/>
+                                <rect key="frame" x="157" y="280" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="8">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -336,7 +351,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvO-Cw-57f" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="267" y="260" width="60" height="60"/>
+                                <rect key="frame" x="267" y="280" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="9">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -346,7 +361,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRe-1s-IhU" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="47" y="260" width="60" height="60"/>
+                                <rect key="frame" x="47" y="280" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="7">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -356,7 +371,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIi-8P-30g" customClass="RutInputButton" customModule="Asistencias" customModuleProvider="target">
-                                <rect key="frame" x="157" y="348" width="60" height="60"/>
+                                <rect key="frame" x="157" y="368" width="60" height="60"/>
                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="19"/>
                                 <state key="normal" title="0">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -366,7 +381,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B2T-p7-K64">
-                                <rect key="frame" x="267" y="348" width="60" height="60"/>
+                                <rect key="frame" x="267" y="368" width="60" height="60"/>
                                 <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
                                 <state key="normal" image="backIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -418,7 +433,7 @@
                             <constraint firstItem="hdT-xb-BGK" firstAttribute="width" secondItem="3Iq-Xy-Z38" secondAttribute="width" id="rSg-wz-yHX"/>
                             <constraint firstItem="6eF-au-5dw" firstAttribute="height" secondItem="3Iq-Xy-Z38" secondAttribute="height" id="tQh-yY-r1I"/>
                             <constraint firstItem="hdT-xb-BGK" firstAttribute="top" secondItem="OJj-Nz-Ufz" secondAttribute="top" id="xW6-Bn-eK0"/>
-                            <constraint firstItem="Evf-aX-lTb" firstAttribute="top" secondItem="MLg-el-4Yb" secondAttribute="bottom" id="xYu-Ni-Jdv"/>
+                            <constraint firstItem="Evf-aX-lTb" firstAttribute="top" secondItem="MLg-el-4Yb" secondAttribute="bottom" constant="20" id="xYu-Ni-Jdv"/>
                             <constraint firstItem="KFX-s4-DHs" firstAttribute="width" secondItem="3Iq-Xy-Z38" secondAttribute="width" id="xq0-LU-12v"/>
                             <constraint firstItem="OJj-Nz-Ufz" firstAttribute="top" secondItem="3Iq-Xy-Z38" secondAttribute="bottom" constant="30" id="yCd-GQ-DtH"/>
                             <constraint firstItem="6eF-au-5dw" firstAttribute="width" secondItem="3Iq-Xy-Z38" secondAttribute="width" id="yvx-IE-DzL"/>
@@ -447,6 +462,7 @@
     </scenes>
     <resources>
         <image name="backIcon" width="50" height="50"/>
+        <image name="wallpaper" width="1024" height="1024"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

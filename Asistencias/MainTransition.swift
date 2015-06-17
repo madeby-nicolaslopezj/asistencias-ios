@@ -34,7 +34,7 @@ class MainTransition: NSObject, UIViewControllerAnimatedTransitioning {
             presentedControllerView.layer.cornerRadius = cornerRadius;
             presentedControllerView.frame = CGRectMake(0, 0, 400, 700)
             presentedControllerView.center = CGPointMake(originalCenter.x, -700);
-            presentedControllerView.transform = CGAffineTransformMakeScale(0.1, 0.1)
+            //presentedControllerView.transform = CGAffineTransformMakeScale(0.1, 0.1)
             containerView.addSubview(presentedControllerView)
             
             UIView.animateWithDuration(duration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
@@ -43,7 +43,7 @@ class MainTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             UIView.animateWithDuration(duration, delay: 0.1, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
         
-                presentedControllerView.transform = CGAffineTransformMakeScale(1, 1)
+                //presentedControllerView.transform = CGAffineTransformMakeScale(1, 1)
                 
                 }, completion: { (completed) in
                     transitionContext.completeTransition(completed)

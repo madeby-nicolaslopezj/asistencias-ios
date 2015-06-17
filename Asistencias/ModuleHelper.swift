@@ -15,7 +15,7 @@ class ModuleHelper {
         let now = NSDate()
         return now.stringFromFormat("dd-MM-yyyy")
     }
-    
+    /*
     class var module: Int {
         let now = NSDate()
         
@@ -62,6 +62,6 @@ class ModuleHelper {
         }
 
         return 8
-    }
+    }*/
     
 }

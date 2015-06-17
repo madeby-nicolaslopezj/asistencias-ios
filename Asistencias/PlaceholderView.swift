@@ -86,7 +86,7 @@ class PlaceholderView: UIView {
     let views = ["contentView": contentView, "titleLabel": titleLabel, "messageLabel": messageLabel]
     
     if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
-      addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(>=30)-[contentView(<=418)]-(>=30)-|", options: nil, metrics: nil, views: views))
+      //addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(>=30)-[contentView(<=418)]-(>=30)-|", options: nil, metrics: nil, views: views))
     } else {
       addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-30-[contentView]-30-|", options: nil, metrics: nil, views: views))
     }

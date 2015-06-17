@@ -35,18 +35,18 @@ class SecondTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             secondControllerView.frame = CGRectMake(0, 0, 540, 700)
             secondControllerView.center = CGPointMake(originalCenter.x, screenHeight * 2)
-            secondControllerView.transform = CGAffineTransformMakeScale(2, 2)
+            //secondControllerView.transform = CGAffineTransformMakeScale(2, 2)
             containerView.addSubview(secondControllerView)
             
             UIView.animateWithDuration(duration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
-                firstControllerView.transform = CGAffineTransformMakeScale(0.1, 0.1)
+                //firstControllerView.transform = CGAffineTransformMakeScale(0.1, 0.1)
             }, completion: nil)
             
-            UIView.animateWithDuration(duration, delay: 0.1, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
+            UIView.animateWithDuration(duration, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
                 
                 firstControllerView.center = CGPointMake(originalCenter.x, -700)
                 secondControllerView.center = originalCenter
-                secondControllerView.transform = CGAffineTransformMakeScale(1, 1)
+                //secondControllerView.transform = CGAffineTransformMakeScale(1, 1)
                 
                 }, completion: { (completed) in
                     transitionContext.completeTransition(completed)
@@ -64,9 +64,9 @@ class SecondTransition: NSObject, UIViewControllerAnimatedTransitioning {
             
             UIView.animateWithDuration(duration, delay: 0.1, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
                 
-                firstControllerView.transform = CGAffineTransformMakeScale(1, 1)
+                //firstControllerView.transform = CGAffineTransformMakeScale(1, 1)
                 firstControllerView.center = originalCenter
-                secondControllerView.transform = CGAffineTransformMakeScale(2, 2)
+                //secondControllerView.transform = CGAffineTransformMakeScale(2, 2)
                 secondControllerView.center = CGPointMake(originalCenter.x, screenHeight * 2)
                 
                 }, completion: { (completed) in

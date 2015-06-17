@@ -175,7 +175,6 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        println("controller did change")
         checksCountDidChange()
     }
     
@@ -191,7 +190,6 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
         super.viewDidLoad()
         self.view.layer.masksToBounds = true
         self.startSessionButton!.addTarget(self, action: "createSession", forControlEvents: UIControlEvents.TouchUpInside)
-        
         //addTaskContainerView.preservesSuperviewLayoutMargins = true
     }
     
@@ -224,17 +222,32 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
             
         } else {
             self.nameLabel!.text = course?.name
-            self.moduleLabel!.text = "Modulo \(ModuleHelper.module)"
+            
             
             if self.session == nil {
                 self.rutInputContainerView!.hidden = true
                 self.startSessionButton!.hidden = false
                 self.studentsCountLabel!.text = "No ha empezado la sesión"
+                self.moduleLabel!.text = ""
             } else {
+                if let module = session?.module {
+                    self.moduleLabel.text = "Modulo \(module)"
+                }
+                
+                if self.checksCount == 1 {
+                    self.studentsCountLabel!.text = "\(self.checksCount) alumno marcó asistencia"
+                } else {
+                    self.studentsCountLabel!.text = "\(self.checksCount) alumnos marcaron asistencias"
+                }
+                
                 self.rutInputContainerView!.hidden = false
                 self.startSessionButton!.hidden = true
-                self.studentsCountLabel!.text = "\(self.checksCount) alumnos marcaron asistencias"
+                
             }
+            
+            
+            
+            
         }
     }
     
@@ -277,7 +290,7 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
         
         let newSession = NSEntityDescription.insertNewObjectForEntityForName("Session", inManagedObjectContext:managedObjectContext) as! Session
         newSession.course = courseId
-        newSession.module = ModuleHelper.module
+        //newSession.module = ModuleHelper.module
         
         var error = NSErrorPointer()
         if !managedObjectContext.save(error) {
