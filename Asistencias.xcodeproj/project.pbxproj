@@ -10,6 +10,7 @@
 		8C27DB0D1B2E5C6500C71A98 /* MainTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27DB0C1B2E5C6500C71A98 /* MainTransition.swift */; };
 		8C27DB0F1B2E64CF00C71A98 /* SecondTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C27DB0E1B2E64CF00C71A98 /* SecondTransition.swift */; };
 		8C27DB121B2E675E00C71A98 /* Asistencias.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C27DB101B2E675E00C71A98 /* Asistencias.xcdatamodeld */; };
+		8C3AD6AD1B334927005E0994 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8C3AD6AC1B334927005E0994 /* Settings.bundle */; };
 		8C5A40551B30772500FFBD5F /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A40541B30772500FFBD5F /* Check.swift */; };
 		8C5A40571B30BC8400FFBD5F /* RutInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5A40561B30BC8400FFBD5F /* RutInputButton.swift */; };
 		8C6BF9201B28753E00DCEF66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BF91F1B28753E00DCEF66 /* AppDelegate.swift */; };
@@ -18,6 +19,8 @@
 		8C6BF92D1B28753E00DCEF66 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BF92B1B28753E00DCEF66 /* LaunchScreen.xib */; };
 		8C6BF9391B28753E00DCEF66 /* AsistenciasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BF9381B28753E00DCEF66 /* AsistenciasTests.swift */; };
 		8C6BF9511B287AFE00DCEF66 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BF9501B287AFE00DCEF66 /* LoginViewController.swift */; };
+		8C80A9261B339633006C60DE /* StudentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C80A9251B339633006C60DE /* StudentExtension.swift */; };
+		8C80A9381B339E52006C60DE /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C80A9371B339E52006C60DE /* ArrayExtension.swift */; };
 		8C96E6821B29E00200770B2B /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96E6811B29E00200770B2B /* AppNavigationController.swift */; };
 		8C96E6841B29E7BD00770B2B /* CoursesIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96E6831B29E7BD00770B2B /* CoursesIndexViewController.swift */; };
 		8C96E6861B29E7CF00770B2B /* CourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C96E6851B29E7CF00770B2B /* CourseTableViewCell.swift */; };
@@ -64,6 +67,7 @@
 		8C27DB0C1B2E5C6500C71A98 /* MainTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTransition.swift; sourceTree = "<group>"; };
 		8C27DB0E1B2E64CF00C71A98 /* SecondTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTransition.swift; sourceTree = "<group>"; };
 		8C27DB111B2E675E00C71A98 /* Asistencias.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Asistencias.xcdatamodel; sourceTree = "<group>"; };
+		8C3AD6AC1B334927005E0994 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8C5A40541B30772500FFBD5F /* Check.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Check.swift; path = ../Check.swift; sourceTree = "<group>"; };
 		8C5A40561B30BC8400FFBD5F /* RutInputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RutInputButton.swift; sourceTree = "<group>"; };
 		8C6BF91A1B28753E00DCEF66 /* Asistencias.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Asistencias.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,8 @@
 		8C6BF9371B28753E00DCEF66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C6BF9381B28753E00DCEF66 /* AsistenciasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsistenciasTests.swift; sourceTree = "<group>"; };
 		8C6BF9501B287AFE00DCEF66 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8C80A9251B339633006C60DE /* StudentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentExtension.swift; sourceTree = "<group>"; };
+		8C80A9371B339E52006C60DE /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		8C96E6811B29E00200770B2B /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		8C96E6831B29E7BD00770B2B /* CoursesIndexViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesIndexViewController.swift; sourceTree = "<group>"; };
 		8C96E6851B29E7CF00770B2B /* CourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseTableViewCell.swift; sourceTree = "<group>"; };
@@ -175,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6BF91E1B28753E00DCEF66 /* Info.plist */,
+				8C3AD6AC1B334927005E0994 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -226,6 +233,7 @@
 				8C27DB0C1B2E5C6500C71A98 /* MainTransition.swift */,
 				8C27DB0E1B2E64CF00C71A98 /* SecondTransition.swift */,
 				8C5A40561B30BC8400FFBD5F /* RutInputButton.swift */,
+				8C80A9371B339E52006C60DE /* ArrayExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 			children = (
 				8C96E6B41B2A19FD00770B2B /* ModuleHelper.swift */,
 				8C96E6B61B2A223900770B2B /* CourseExtension.swift */,
+				8C80A9251B339633006C60DE /* StudentExtension.swift */,
 				8C96E6B81B2A24A900770B2B /* SessionExtension.swift */,
 			);
 			name = Helpers;
@@ -442,6 +451,7 @@
 				8CA8D39B1B2F359A00BB6263 /* OpenSans-Semibold.ttf in Resources */,
 				8CA8D3971B2F359A00BB6263 /* OpenSans-Bold.ttf in Resources */,
 				8C6BF92A1B28753E00DCEF66 /* Images.xcassets in Resources */,
+				8C3AD6AD1B334927005E0994 /* Settings.bundle in Resources */,
 				8CA8D3981B2F359A00BB6263 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,9 +541,11 @@
 				8C96E6B11B2A09B400770B2B /* Session.swift in Sources */,
 				8C96E6951B29E8C400770B2B /* FoundationExtensions.swift in Sources */,
 				8C96E6AB1B29F6C400770B2B /* RutInputViewController.swift in Sources */,
+				8C80A9261B339633006C60DE /* StudentExtension.swift in Sources */,
 				8C96E6B91B2A24A900770B2B /* SessionExtension.swift in Sources */,
 				8C6BF9201B28753E00DCEF66 /* AppDelegate.swift in Sources */,
 				8C96E6B51B2A19FD00770B2B /* ModuleHelper.swift in Sources */,
+				8C80A9381B339E52006C60DE /* ArrayExtension.swift in Sources */,
 				8C96E6961B29E8C400770B2B /* MeteorExtensions.swift in Sources */,
 				8C27DB0F1B2E64CF00C71A98 /* SecondTransition.swift in Sources */,
 				8C96E6AE1B2A09AA00770B2B /* Course.swift in Sources */,

@@ -10,7 +10,18 @@ import UIKit
 import CoreData
 import Meteor
 
-let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: "ws://10.0.1.25:3000/websocket")!)
+var MeteorUrl: String {
+    get {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if let serverUrl = userDefaults.stringForKey("ServerUrl") {
+            return "ws://\(serverUrl)/websocket"
+        }
+        
+        return "ws://error/websocket"
+    }
+}
+
+let Meteor = METCoreDataDDPClient(serverURL: NSURL(string: MeteorUrl)!)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Meteor.connect()
+        
         
         //println("Module: \(ModuleHelper.module)")
         //Meteor.addSubscriptionWithName("everything")

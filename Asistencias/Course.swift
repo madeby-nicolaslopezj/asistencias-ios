@@ -2,7 +2,7 @@
 //  Course.swift
 //  
 //
-//  Created by Nicolás López on 11-06-15.
+//  Created by Nicolás López on 18-06-15.
 //
 //
 
@@ -12,6 +12,7 @@ import CoreData
 class Course: NSManagedObject {
 
     @NSManaged var abbreviation: String
+    @NSManaged var currentSessionId: String
     @NSManaged var hidden: NSNumber
     @NSManaged var name: String
     @NSManaged var numberOfStudents: String
@@ -20,7 +21,6 @@ class Course: NSManagedObject {
     @NSManaged var periodName: String
     @NSManaged var section: String
     @NSManaged var teacher: String
-    @NSManaged var students: NSData
-    @NSManaged var currentSessionId: String
+    @NSManaged var students: [String]
 
 }

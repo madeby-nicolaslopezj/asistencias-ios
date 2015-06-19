@@ -38,7 +38,7 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
     
     private var courseObserver: ManagedObjectObserver?
 
-    private var course: Course? {
+    var course: Course? {
         didSet {
             if course != oldValue {
                 if course != nil {
@@ -99,7 +99,7 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
     
     private var sessionObserver: ManagedObjectObserver?
     
-    private var session: Session? {
+    var session: Session? {
         didSet {
             if session != oldValue {
                 if session != nil {
@@ -255,31 +255,6 @@ class CoursesShowViewController: FetchedResultsViewController, NSFetchedResultsC
 
     @IBAction func closeButtonClicked(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    // MARK: - Rut Delegate
-    
-    func getStudentNameWithRut(rut: String) -> String? {
-        
-        let fetchRequest = NSFetchRequest(entityName: "Student")
-        fetchRequest.predicate = NSPredicate(format: "rut == %@", rut)
-        fetchRequest.fetchLimit = 1;
-        
-        var error: NSErrorPointer = nil
-        var results: Array = managedObjectContext.executeFetchRequest(fetchRequest, error: error)!
-        
-        if results.count == 1 {
-            var student = results[0] as! Student
-            self.markStudentAssistance(student)
-            return student.name
-        }
-        
-        return nil
-    }
-    
-    func markStudentAssistance(student: Student) {
-        println("Checking in...")
-        self.session?.addStudent(student);
     }
     
     // MARK: - Create Session

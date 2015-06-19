@@ -29,4 +29,18 @@ extension Session {
         }
     }
     
+    func studentDidCheck(student: Student) -> Bool {
+        let studentId: String = Meteor.documentKeyForObjectID(student.objectID).documentID as! String
+        let sessionId: String = Meteor.documentKeyForObjectID(self.objectID).documentID as! String
+        
+        let fetchRequest = NSFetchRequest(entityName: "Check")
+        fetchRequest.predicate = NSPredicate(format: "session == %@ && student == %@", sessionId, studentId)
+        fetchRequest.fetchLimit = 1;
+        
+        var error: NSErrorPointer = nil
+        var results: Array = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: error)!
+        
+        return results.count != 0
+    }
+    
 }

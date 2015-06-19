@@ -30,9 +30,9 @@
         <attribute name="rut" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Check" positionX="-45" positionY="63" width="128" height="75"/>
         <element name="Course" positionX="-63" positionY="-18" width="128" height="210"/>
         <element name="Session" positionX="-36" positionY="81" width="128" height="90"/>
         <element name="Student" positionX="-54" positionY="63" width="128" height="120"/>
-        <element name="Check" positionX="-45" positionY="63" width="128" height="75"/>
     </elements>
 </model>
