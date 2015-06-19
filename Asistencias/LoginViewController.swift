@@ -123,7 +123,6 @@ class LoginViewController: UIViewController, UIViewControllerTransitioningDelega
             }
             
         }) { (finished) -> Void in
-            
         }
         
     }
